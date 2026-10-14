@@ -11,7 +11,6 @@
 
 > **Note:** This is a portfolio example. The product, data, people and requirements are fictional and generalized. It shows how I plan testing for a healthcare web platform; it does not describe any real company's system.
 
----
 
 ## Table of Contents
 
@@ -36,7 +35,6 @@
 19. [Assumptions and Dependencies](#19-assumptions-and-dependencies)
 20. [Approvals](#20-approvals)
 
----
 
 ## 1. Introduction
 
@@ -74,7 +72,6 @@ The Clinical Placement Platform connects nursing students (Nurse Practitioner, A
 | SQL data checks | Data integrity queries | [sql-queries/](../sql-queries/) |
 | Automation project | Automated UI and API tests | [automation/](../automation/) |
 
----
 
 ## 2. Test Items
 
@@ -92,7 +89,6 @@ The Clinical Placement Platform connects nursing students (Nurse Practitioner, A
 | M-10 | Notifications | Email and in-app notifications for key events (request sent, accepted, document rejected, payment received, hours approved) |
 | M-11 | Admin panel | User management, document review, match management, rotation overrides, reports |
 
----
 
 ## 3. Scope
 
@@ -114,7 +110,6 @@ The Clinical Placement Platform connects nursing students (Nurse Practitioner, A
 | Third-party payment provider internals | Tested only on our side (sandbox mode) |
 | Third-party email delivery | We verify that the email is triggered and its content, not the provider's delivery |
 
----
 
 ## 4. Test Levels
 
@@ -128,7 +123,6 @@ The Clinical Placement Platform connects nursing students (Nurse Practitioner, A
 | **User Acceptance Testing (UAT)** | Confirm the product meets business needs | Product Owner, UAT stakeholders, QA support | Staging / UAT | System testing complete, no open Critical defects | Sign-off received |
 | **Post-release verification** | Quick check that the release works in production | QA | Production | Release deployed | Smoke checks passed |
 
----
 
 ## 5. Test Types
 
@@ -148,7 +142,6 @@ The Clinical Placement Platform connects nursing students (Nurse Practitioner, A
 | Regression | Existing functionality after changes | Regression | Automated + manual |
 | Acceptance | Business scenarios | UAT | Manual |
 
----
 
 ## 6. Test Design and Prioritization
 
@@ -174,7 +167,6 @@ The Clinical Placement Platform connects nursing students (Nurse Practitioner, A
 - Test cases are reviewed before execution and updated when requirements change.
 - A requirements traceability matrix links user stories → test cases → defects.
 
----
 
 ## 7. Automation Approach
 
@@ -188,7 +180,6 @@ The Clinical Placement Platform connects nursing students (Nurse Practitioner, A
 | Reporting | pytest-html report; screenshots and traces on failure |
 | Maintenance | Failing tests are reviewed within one day: product defect → bug in Jira; test issue → fixed in the test |
 
----
 
 ## 8. Test Environments
 
@@ -211,7 +202,6 @@ The Clinical Placement Platform connects nursing students (Nurse Practitioner, A
 
 **Tools:** Jira, Confluence, Zephyr Scale, Postman, SQL client, Chrome DevTools, VS Code, Playwright, Claude code.
 
----
 
 ## 9. Test Data Management
 
@@ -233,7 +223,6 @@ The Clinical Placement Platform connects nursing students (Nurse Practitioner, A
 | preceptor_pending | Preceptor | Profile not yet approved | Must not appear in search |
 | admin_user | Admin | Full access | Document review, manual matching |
 
----
 
 ## 10. Entry and Exit Criteria
 
@@ -254,7 +243,6 @@ These criteria apply to system testing for every release. Criteria for other lev
 - UAT completed and signed off.
 - Test summary report shared with the team.
 
----
 
 ## 11. Suspension and Resumption Criteria
 
@@ -268,7 +256,6 @@ These criteria apply to system testing for every release. Criteria for other lev
 - The environment is restored, or the blocker is fixed and verified.
 - The smoke test passes again.
 
----
 
 ## 12. Defect Management
 
@@ -290,7 +277,6 @@ Summary, Environment, Role/account used, Preconditions, Steps to reproduce, Actu
 ### 12.4 Defect triage
 Open defects are reviewed with the Project Manager regularly to agree on priority and the target release.
 
----
 
 ## 13. Roles and Responsibilities
 
@@ -303,7 +289,6 @@ Open defects are reviewed with the Project Manager regularly to agree on priorit
 | Product Owner | Defines acceptance criteria, prioritizes defects, signs off on UAT |
 | UAT stakeholders | Run business scenarios and confirm the release is ready |
 
----
 
 ## 14. Test Process and Schedule
 
@@ -322,7 +307,6 @@ Testing follows the team's Agile process. Each sprint and release goes through t
 
 **Hotfixes:** focused testing of the fix + smoke suite + affected-area regression.
 
----
 
 ## 15. Metrics and Reporting
 
@@ -341,7 +325,6 @@ Testing follows the team's Agile process. Each sprint and release goes through t
 | Test summary report with go/no-go recommendation | Product Owner, Tech Lead | Each release |
 | Quality trends (leakage, defects per release) | Team, management | Monthly |
 
----
 
 ## 16. Communication Plan
 
@@ -353,7 +336,6 @@ Testing follows the team's Agile process. Each sprint and release goes through t
 | Release readiness | Go/no-go meeting, test summary report | QA → Product Owner, Tech Lead |
 | UAT coordination | Meeting, shared checklist | QA ↔ UAT stakeholders |
 
----
 
 ## 17. Test Deliverables
 
@@ -368,7 +350,6 @@ Testing follows the team's Agile process. Each sprint and release goes through t
 | Daily status updates | During testing |
 | Test summary report with go/no-go recommendation | Each release |
 
----
 
 ## 18. Risks and Mitigations
 
@@ -383,7 +364,6 @@ Testing follows the team's Agile process. Each sprint and release goes through t
 | Short testing window before release | Medium | Medium | Risk-based prioritization; automated regression |
 | Automation becomes flaky or outdated | Medium | Medium | Page Object Model; review failures within one day; regular maintenance |
 
----
 
 ## 19. Assumptions and Dependencies
 
@@ -393,7 +373,6 @@ Testing follows the team's Agile process. Each sprint and release goes through t
 - Developers are available to fix Critical and High defects during the test cycle.
 - UAT stakeholders are available within the planned UAT window.
 
----
 
 ## 20. Approvals
 
@@ -403,6 +382,3 @@ Testing follows the team's Agile process. Each sprint and release goes through t
 | | Tech Lead | | |
 | | Product Owner | | |
 
----
-
-*Portfolio example. The product, requirements, users and data in this document are fictional and generalized.*

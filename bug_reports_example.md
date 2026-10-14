@@ -19,6 +19,7 @@
 
 
 
+
 ## CPP-BUG-001
 
 **Summary:** [Admin Panel – Coordinators] Generic "Not created" error is shown instead of the EMAIL_EXISTS error when creating a CC with an existing email in the Admin panel
@@ -51,6 +52,8 @@ The error "The user with the provided email already exists (EMAIL_EXISTS)." is d
 - Screen size: 1920x1080
 - Browser: Microsoft Edge, Version 148.0.7778.179 (Official Build) (64-bit)
 - Platform: Windows 11 Pro 64-bit
+
+
 
 
 ## CPP-BUG-002
@@ -91,6 +94,8 @@ The admin panel shows the correct partial refund amount, matching the amount ref
 - Screen size: 1920x1080
 - Browser: Microsoft Edge, Version 148.0.7778.179 (Official Build) (64-bit)
 - Platform: Windows 11 Pro 64-bit
+
+
 
 
 ## CPP-BUG-003
@@ -141,6 +146,8 @@ Filtering by two or more Programs of Study should successfully return a filtered
 - Screen size: 1920x1080
 - Browser: Microsoft Edge, Version 147.0.7727.117 (Official Build) (64-bit)
 - Platform: Windows 11 Pro 64-bit
+
+
 
 
 ## CPP-BUG-004
@@ -199,6 +206,8 @@ The value is saved and shows 200 after reload. The `rotationConstants` query ret
 - Screen size: 1920x1080
 - Browser: Microsoft Edge, Version 152.0.7977.75 (Official Build) (64-bit)
 - Platform: Windows 11 Pro 64-bit
+
+
 
 
 ## CPP-BUG-005

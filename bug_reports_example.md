@@ -11,9 +11,9 @@
 
 | ID | Summary | Priority | Status |
 |---|---|---|---|
-| [CPP-BUG-001](#cpp-bug-001) | [Admin Panel – Coordinators] Generic "Not created" error is shown instead of the EMAIL_EXISTS error when creating a CC with an existing email | Medium | Ready |
-| [CPP-BUG-002](#cpp-bug-002) | [Payments] Partial refund shown as full refund in admin panel | High | In Progress|
-| [CPP-BUG-003](#cpp-bug-003) | [Regression] Page fails to load when filtering by two Programs of Study on Students tab – GraphQL error: programOfStudy Int cannot represent non-integer value | Medium | Done |
+| [CPP-BUG-001](#cpp-bug-001) | [Admin Panel – Coordinators] Generic "Not created" error is shown instead of the EMAIL_EXISTS error when creating a CC with an existing email in the Admin panel | Medium | Ready |
+| [CPP-BUG-002](#cpp-bug-002) | [Payments] Partial refund in Stripe for rotation is shown as a full refund in the Admin panel | High | In Progress|
+| [CPP-BUG-003](#cpp-bug-003) | [Regression] Page fails to load when filtering by two Programs of Study on the Students tab – GraphQL error: programOfStudy Int cannot represent non-integer value | Medium | Done |
 | [CPP-BUG-004](#cpp-bug-004) | [Rotation Constants] Inline edit returns Success, but no field values are saved while updating rotation constants | High | To DO |
 | [CPP-BUG-005](#cpp-bug-005) | API: `POST /api/v1/rotations/{id}/hours` accepts a negative hours value during rotation creation and returns 201 Created | High | Open |
 
@@ -21,10 +21,8 @@
 
 ## CPP-BUG-001
 
-**Summary:** [Admin Panel – Coordinators] Generic "Not created" error is shown instead of the EMAIL_EXISTS error when creating a CC with an existing email
+**Summary:** [Admin Panel – Coordinators] Generic "Not created" error is shown instead of the EMAIL_EXISTS error when creating a CC with an existing email in the Admin panel
 
-| Field | Value |
-|---|---|
 | Priority | Medium |
 
 ### Description
@@ -33,7 +31,7 @@ When a CC is created in the admin panel with an email that already belongs to an
 ### Preconditions
 - CC is logged in to the admin panel.
 - A user with the used email already exists in the system.
-- The Admin Panel is opened.
+- The Admin Panel is open.
 
 ### Steps to reproduce
 1. Open the Clinical Coordinators section in the admin panel.
@@ -43,10 +41,10 @@ When a CC is created in the admin panel with an email that already belongs to an
 5. Click "Save".
 
 ### Actual result
-A generic "Not created" error is displayed and the CC is not created.
+A generic "Not created" error is displayed, and the CC is not created.
 
 ### Expected result
-The error "The user with the provided email already exists (EMAIL_EXISTS)." is displayed and the CC is not created.
+The error "The user with the provided email already exists (EMAIL_EXISTS)." is displayed, and the CC is not created.
 
 ### Environment
 - Environment: Staging
@@ -57,10 +55,8 @@ The error "The user with the provided email already exists (EMAIL_EXISTS)." is d
 
 ## CPP-BUG-002
 
-**Summary:** [Payments] Partial refund in Stripe is shown as full refund in admin panel
+**Summary:** [Payments] Partial refund in Stripe for rotation is shown as a full refund in the Admin panel
 
-| Field | Value |
-|---|---|
 | Priority | High|
 
 ### Description
@@ -74,10 +70,10 @@ When a payment is partially refunded via Stripe, the admin panel incorrectly dis
 - The first payment is charged.
 
 ### Steps to reproduce
-1. Open a Stripe test mode.
-2. Open the created and payed rotation.
+1. Open Stripe test mode.
+2. Open the created and paid rotation.
 3. Click Refund.
-4. Enter the half of the sum.
+4. Enter half of the sum.
 5. Confirm refund.
 6. Log in to the admin panel as CC.
 7. Navigate to the rotation associated with the partially refunded payment.
@@ -85,7 +81,7 @@ When a payment is partially refunded via Stripe, the admin panel incorrectly dis
 4. Observe the refund amount displayed in the admin panel.
 
 ### Actual result
-The admin panel shows the payment as fully refunded even though only a partial refund was processed in Stripe.
+The admin panel shows the payment as fully refunded even though Stripe processed only a partial refund.
 
 ### Expected result
 The admin panel shows the correct partial refund amount, matching the amount refunded in Stripe.
@@ -99,14 +95,12 @@ The admin panel shows the correct partial refund amount, matching the amount ref
 
 ## CPP-BUG-003
 
-**Summary:** [Regression] Page fails to load when filtering by two Programs of Study on Students tab – GraphQL error: programOfStudy Int cannot represent non-integer value
+**Summary:** [Regression] Page fails to load when filtering by two Programs of Study on the Students tab – GraphQL error: programOfStudy Int cannot represent non-integer value
 
-| Field | Value |
-|---|---|
 | Priority | Medium |
 
 ### Description
-When filtering by two Programs of Study on the Students tab page, the page fails to load and a GraphQL error is returned. The error indicates that the `programOfStudy` array values are being passed as strings instead of integers, causing the query to fail.
+When filtering by two Programs of Study on the Students tab page, the page fails to load, and a GraphQL error is returned. The error indicates that the `programOfStudy` array values are being passed as strings instead of integers, causing the query to fail.
 
 ### Preconditions
 - The CC is logged in to the Admin panel.
@@ -168,14 +162,14 @@ Logged in as an admin with access to the Rotation Constants page.
 ### Steps to reproduce
 1. Open the Rotation Constants page.
 2. Inline-edit Custom Search Payment One from 150 to 200.
-3. Hit the Save.
+3. Click Save.
 3. Observe the success message.
 4. Hard reload the page (cache disabled).
 
 ### Actual result
 The value reverts to 150 after reload.
 
-- The `saveInlineEdit` mutation returns 200 OK with `status: "Success"` and message "Inline field has been saved successfully."
+- The `saveInlineEdit` mutation returns 200 OK with `status: "Success"` and the message "Inline field has been saved successfully."
 - The following `rotationConstants` query returns the unchanged `customSearchPaymentOne: 150`.
 - Reproduces for **all fields** on the page: `platformFee`, `platformFeeNoHonorarium`, `serviceFee`, `customSearchPaymentOne`, `customSearchPaymentTwo`, `lastMinuteFee`, `lastMinuteFeeDaysAmount`.
 
@@ -211,8 +205,6 @@ The value is saved and shows 200 after reload. The `rotationConstants` query ret
 
 **Summary:** API: `POST /api/v1/rotations/{id}/hours` accepts a negative hours value during rotation creation and returns 201 Created
 
-| Field | Value |
-|---|---|
 | Priority | High |
 
 ### Preconditions

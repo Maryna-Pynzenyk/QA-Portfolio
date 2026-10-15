@@ -77,15 +77,19 @@
 | Field | Value |
 |---|---|
 | Priority | P1 |
+| Tool | Postman |
 | Request | `POST {{baseUrl}}/rotations/{{rotationId}}/hours` |
-| Preconditions | Valid `adminToken`. A new rotation exists; its ID is saved to `rotationId`. |
+| Preconditions | Postman environment with `baseUrl` is selected. Valid `adminToken` is saved in the environment. A new rotation exists, its ID is saved to `rotationId`. |
+| Test data | `{"hours": -40}` |
 
-**Steps:** Send the body from the table, check the status and the response, then call `GET /rotations/{{rotationId}}` and check what was saved in `hours`.
-
- Body | Expected status 
-|---|---|---|---|
-| 1 | `{"hours": -40}` | 400. Error "Hours must be a positive number." Not saved. |
-
+| # | Action | Expected result |
+|---|---|---|
+| 1 | Create a new `POST` request with the URL `{{baseUrl}}/rotations/{{rotationId}}/hours`. | URL is resolved with the values from the environment. |
+| 2 | Open the Authorization tab, select Bearer Token and enter `{{adminToken}}`. | Token is added to the request headers. |
+| 3 | Open the Body tab, select raw → JSON and enter `{"hours": -40}`. | Body is valid JSON. |
+| 4 | Click Send. | Status is `400 Bad Request`. |
+| 5 | Check the response body. | Response contains the error "Hours must be a positive number." |
+| 6 | Send `GET {{baseUrl}}/rotations/{{rotationId}}` with the same token. | Status is `200 OK`. `hours` is not `-40`, the negative value was not saved. |
 
 ### TC-API-002
 

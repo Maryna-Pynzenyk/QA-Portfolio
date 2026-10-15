@@ -9,7 +9,7 @@
 | [CPP-BUG-005](#cpp-bug-005) | API: `POST /api/v1/rotations/{id}/hours` accepts a negative hours value during rotation creation and returns 201 Created | High | Open |
 
 
-# CPP-BUG-001
+## CPP-BUG-001
 
 **Summary:** [Admin Panel – Coordinators] Generic "Not created" error is shown instead of the EMAIL_EXISTS error when creating a CC with an existing email in the Admin panel
 
@@ -38,6 +38,7 @@ The error "The user with the provided email already exists (EMAIL_EXISTS)." is d
 
 ### Environment
 - Environment: Staging
+- Build_version: xxxxx
 - Screen size: 1920x1080
 - Browser: Microsoft Edge, Version 148.0.7778.179 (Official Build) (64-bit)
 - Platform: Windows 11 Pro 64-bit
@@ -45,7 +46,7 @@ The error "The user with the provided email already exists (EMAIL_EXISTS)." is d
 
 
 
-# CPP-BUG-002
+## CPP-BUG-002
 
 **Summary:** [Payments] Partial refund in Stripe for rotation is shown as a full refund in the Admin panel
 
@@ -80,6 +81,7 @@ The admin panel shows the correct partial refund amount, matching the amount ref
 
 ### Environment
 - Environment: Stage
+- Build_version: xxxxx
 - Screen size: 1920x1080
 - Browser: Microsoft Edge, Version 148.0.7778.179 (Official Build) (64-bit)
 - Platform: Windows 11 Pro 64-bit
@@ -87,7 +89,7 @@ The admin panel shows the correct partial refund amount, matching the amount ref
 
 
 
-# CPP-BUG-003
+## CPP-BUG-003
 
 **Summary:** [Regression] Page fails to load when filtering by two Programs of Study on the Students tab – GraphQL error: programOfStudy Int cannot represent non-integer value
 
@@ -131,6 +133,7 @@ Filtering by two or more Programs of Study should successfully return a filtered
 
 ### Environment
 - Environment: Stage
+- Build_version: xxxxx
 - Scope: Regression
 - Screen size: 1920x1080
 - Browser: Microsoft Edge, Version 147.0.7727.117 (Official Build) (64-bit)
@@ -139,7 +142,7 @@ Filtering by two or more Programs of Study should successfully return a filtered
 
 
 
-# CPP-BUG-004
+## CPP-BUG-004
 
 **Summary:** [Rotation Constants] Inline edit returns Success, but no field values are saved while updating rotation constants
 
@@ -190,6 +193,7 @@ The value is saved and shows 200 after reload. The `rotationConstants` query ret
 
 ### Environment
 - Environment: Stage
+- Build_version: xxxxx
 - Screen size: 1920x1080
 - Browser: Microsoft Edge, Version 152.0.7977.75 (Official Build) (64-bit)
 - Platform: Windows 11 Pro 64-bit
@@ -197,7 +201,7 @@ The value is saved and shows 200 after reload. The `rotationConstants` query ret
 
 
 
-# CPP-BUG-005
+## CPP-BUG-005
 
 **Summary:** API: `POST /api/v1/rotations/{id}/hours` accepts a negative hours value during rotation creation and returns 201 Created
 

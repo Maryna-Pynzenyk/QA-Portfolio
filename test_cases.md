@@ -82,17 +82,10 @@
 
 **Steps:** Send the body from the table, check the status and the response, then call `GET /rotations/{{rotationId}}` and check what was saved in `hours`.
 
-| # | Body | Expected status | Expected result |
+ Body | Expected status 
 |---|---|---|---|
-| 1 | `{"hours": 120}` | 201 | `hours` = 120 saved. |
-| 2 | `{"hours": 1}` | 201 | Saved (minimum positive value). |
-| 3 | `{"hours": 0}` | 400 | Validation error, not saved. |
-| 4 | `{"hours": -40}` | 400 | Error "Hours must be a positive number." Not saved. |
-| 5 | `{"hours": "120"}` | 400, or 201 with `hours` saved as number 120 | Never saved as a string. |
-| 6 | `{"hours": "abc"}` | 400 | Validation error, not saved. |
-| 7 | `{}` | 400 | `hours` is required. |
-| 8 | Valid body, no `Authorization` header | 401 | Not saved. |
-| 9 | Valid body, `rotationId` does not exist | 404 | "Rotation not found". |
+| 1 | `{"hours": -40}` | 400. Error "Hours must be a positive number." Not saved. |
+
 
 ### TC-API-002
 

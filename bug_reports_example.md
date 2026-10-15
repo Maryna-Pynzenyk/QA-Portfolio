@@ -1,13 +1,9 @@
-# Bug Reports – Clinical Placement Platform
+# Bug Reports
 
 | Field | Value |
 |---|---|
 | Application | Clinical Placement Platform (web application) |
 | Author | Maryna (QA Engineer) |
-
-> **Note:** Portfolio example. Product name, URLs and record IDs are removed. The reports show how I write and structure defects for a healthcare web platform.
-
-## Summary
 
 | ID | Summary | Priority | Status |
 |---|---|---|---|
@@ -16,8 +12,6 @@
 | [CPP-BUG-003](#cpp-bug-003) | [Regression] Page fails to load when filtering by two Programs of Study on the Students tab – GraphQL error: programOfStudy Int cannot represent non-integer value | Medium | Done |
 | [CPP-BUG-004](#cpp-bug-004) | [Rotation Constants] Inline edit returns Success, but no field values are saved while updating rotation constants | High | To DO |
 | [CPP-BUG-005](#cpp-bug-005) | API: `POST /api/v1/rotations/{id}/hours` accepts a negative hours value during rotation creation and returns 201 Created | High | Open |
-
-
 
 
 ## CPP-BUG-001

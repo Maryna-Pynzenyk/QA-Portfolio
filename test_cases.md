@@ -58,10 +58,20 @@
 ### TC-RES-002
 
 **Title:** Verify that a student is not able to see the preceptor's profile until the last payment is charged
-|---|---|
-| Priority | P1 |
-| Preconditions | Student is signed up. The wizard is completed. The rotation is created. The system has a public and available preceptor. The student is logged in to the app. |
-| Test data | Test card for a successful payment |
+<table>
+  <tr>
+    <td><b>Priority</b></td>
+    <td>P1</td>
+  </tr>
+  <tr>
+    <td><b>Preconditions</b></td>
+    <td>Student is signed up. The wizard is completed. The rotation is created. The system has a public and available preceptor. The student is logged in to the app.</td>
+  </tr>
+  <tr>
+    <td><b>Test data</b></td>
+    <td>Test card for a successful payment</td>
+  </tr>
+</table>
 
 | # | Steps | Expected result |
 |---|---|---|
@@ -80,12 +90,28 @@
 ### TC-API-001
 
 **Title:** Verify that an admin is not able to save rotation hours via API with a negative value
-|---|---|
-| Priority | P2 |
-| Tool | Postman |
-| Request | `POST {{baseUrl}}/rotations/{{rotationId}}/hours` |
-| Preconditions | Postman environment with `baseUrl` is selected. Valid `adminToken` is saved in the environment. A new rotation exists, its ID is saved to `rotationId`. |
-| Test data | `{"hours": -40}` |
+<table>
+  <tr>
+    <td><b>Priority</b></td>
+    <td>P2</td>
+  </tr>
+  <tr>
+    <td><b>Tool</b></td>
+    <td>Postman</td>
+  </tr>
+  <tr>
+    <td><b>Request</b></td>
+    <td><code>POST {{baseUrl}}/rotations/{{rotationId}}/hours</code></td>
+  </tr>
+  <tr>
+    <td><b>Preconditions</b></td>
+    <td>Postman environment with <code>baseUrl</code> is selected. Valid <code>adminToken</code> is saved in the environment. A new rotation exists, its ID is saved to <code>rotationId</code>.</td>
+  </tr>
+  <tr>
+    <td><b>Test data</b></td>
+    <td><code>{"hours": -40}</code></td>
+  </tr>
+</table>
 
 | # |Steps| Expected result |
 |---|---|---|
@@ -99,12 +125,28 @@
 ### TC-API-002
 
 **Title:** Verify that a CC is able to get the students list via API filtered by two Programs of Study
-|---|---|
-| Priority | P2 |
-| Tool | Postman |
-| Request | `GET {{baseUrl}}/students?programOfStudy=3&programOfStudy=10` |
-| Preconditions | Postman environment with `baseUrl` is selected. Valid `adminToken` (CC) is saved in the environment. Test students exist in programs with IDs 3 and 10, and in at least one other program (for example 12). |
-| Test data | `programOfStudy` = 3 and 10 |
+<table>
+  <tr>
+    <td><b>Priority</b></td>
+    <td>P2</td>
+  </tr>
+  <tr>
+    <td><b>Tool</b></td>
+    <td>Postman</td>
+  </tr>
+  <tr>
+    <td><b>Request</b></td>
+    <td><code>GET {{baseUrl}}/students?programOfStudy=3&amp;programOfStudy=10</code></td>
+  </tr>
+  <tr>
+    <td><b>Preconditions</b></td>
+    <td>Postman environment with <code>baseUrl</code> is selected. Valid <code>adminToken</code> (CC) is saved in the environment. Test students exist in programs with IDs 3 and 10, and in at least one other program (for example 12).</td>
+  </tr>
+  <tr>
+    <td><b>Test data</b></td>
+    <td><code>programOfStudy</code> = 3 and 10</td>
+  </tr>
+</table>
 
 | # | Steps | Expected result |
 |---|---|---|
@@ -119,11 +161,24 @@
 ### TC-DB-001
 
 **Title:** Verify that a new student record is saved in the database with the correct data after sign-up
-|---|---|
-| Priority | P1 |
-| Tool | SQL client
-| Preconditions | Email `student.qa+db001@test.example` is not registered. Program of Study "Family Nurse Practitioner" exists. |
-| Test data | Email: `student.qa+db001@test.example`, First name: Anna, Last name: Smith, Program of Study: Family Nurse Practitioner |
+<table>
+  <tr>
+    <td><b>Priority</b></td>
+    <td>P1</td>
+  </tr>
+  <tr>
+    <td><b>Tool</b></td>
+    <td>SQL client</td>
+  </tr>
+  <tr>
+    <td><b>Preconditions</b></td>
+    <td>Email <code>student.qa+db001@test.example</code> is not registered. Program of Study "Family Nurse Practitioner" exists.</td>
+  </tr>
+  <tr>
+    <td><b>Test data</b></td>
+    <td>Email: <code>student.qa+db001@test.example</code>, First name: Anna, Last name: Smith, Program of Study: Family Nurse Practitioner</td>
+  </tr>
+</table>
 
 | # | Steps | Expected result |
 |---|---|---|
@@ -134,11 +189,24 @@
 ### TC-BE-001
 
 **Title:** Verify that the system updates the payment and rotation status when a successful payment event is received
-|---|---|
-| Priority | P1 |
-| Tools | App, payment provider dashboard (test mode), SQL client, Postman |
-| Preconditions | Student is signed up. The wizard is completed. The rotation is created. The system has a public and available preceptor. The preceptor is added to the rotation, and the rotation is waiting for payment. |
-| Test data | Test card for a successful payment |
+<table>
+  <tr>
+    <td><b>Priority</b></td>
+    <td>P1</td>
+  </tr>
+  <tr>
+    <td><b>Tools</b></td>
+    <td>App, payment provider dashboard (test mode), SQL client, Postman</td>
+  </tr>
+  <tr>
+    <td><b>Preconditions</b></td>
+    <td>Student is signed up. The wizard is completed. The rotation is created. The system has a public and available preceptor. The preceptor is added to the rotation, and the rotation is waiting for payment.</td>
+  </tr>
+  <tr>
+    <td><b>Test data</b></td>
+    <td>Test card for a successful payment</td>
+  </tr>
+</table>
 
 | # | Steps| Expected result |
 |---|---|---|
@@ -156,10 +224,20 @@
 ### TC-SEC-001
 
 **Title:** Verify that a student is not able to see another student's data by changing the record ID
-|---|---|
-| Priority | P1 |
-| Tool | Postman |
-| Preconditions | Student 1 is signed up. Student B is signed up. Both students have the wizard completed. Both students have the rotations created. Logged in as Student 1. |
+<table>
+  <tr>
+    <td><b>Priority</b></td>
+    <td>P1</td>
+  </tr>
+  <tr>
+    <td><b>Tool</b></td>
+    <td>Postman</td>
+  </tr>
+  <tr>
+    <td><b>Preconditions</b></td>
+    <td>Student 1 is signed up. Student 2 is signed up. Both students have the wizard completed. Both students have the rotations created. Logged in as Student 1.</td>
+  </tr>
+</table>
 
 | # | Steps | Expected result |
 |---|---|---|

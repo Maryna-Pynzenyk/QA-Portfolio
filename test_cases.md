@@ -6,7 +6,7 @@
 | Author | Maryna (QA Engineer) |
 
 ## Contents
-
+|---|---|
 | Section | Count | Link |
 | Test cases | 7 | [open](#test-cases) |
 | BDD test cases | 9 features | [open](#bdd-test-cases) |
@@ -26,7 +26,7 @@
 ### TC-RES-001
 
 **Title:** Verify that a preceptor who cannot take more students in this date range is not available for students to reserve
-
+|---|---|
 | Priority | P1 |
 | Preconditions | Student is signed up. The student's wizard is completed. The Home page is opened. Preceptor is public and available, max number of students = 1. |
 | Test data |Test card for a successful payment |
@@ -46,7 +46,7 @@
 ### TC-RES-002
 
 **Title:** Verify that a student is not able to see the preceptor's profile until the last payment is charged
-
+|---|---|
 | Priority | P1 |
 | Preconditions | Student is signed up. The wizard is completed. The rotation is created. The system has a public and available preceptor. The student is logged in to the app. |
 | Test data | Test card for a successful payment |
@@ -68,7 +68,7 @@
 ### TC-API-001
 
 **Title:** Verify that an admin is not able to save rotation hours via API with a negative value
-
+|---|---|
 | Priority | P2 |
 | Tool | Postman |
 | Request | `POST {{baseUrl}}/rotations/{{rotationId}}/hours` |
@@ -87,7 +87,7 @@
 ### TC-API-002
 
 **Title:** Verify that a CC is able to get the students list via API filtered by two Programs of Study
-
+|---|---|
 | Priority | P2 |
 | Tool | Postman |
 | Request | `GET {{baseUrl}}/students?programOfStudy=3&programOfStudy=10` |
@@ -107,7 +107,7 @@
 ### TC-DB-001
 
 **Title:** Verify that a new student record is saved in the database with the correct data after sign-up
-
+|---|---|
 | Priority | P1 |
 | Tool | SQL client
 | Preconditions | Email `student.qa+db001@test.example` is not registered. Program of Study "Family Nurse Practitioner" exists. |
@@ -122,7 +122,7 @@
 ### TC-BE-001
 
 **Title:** Verify that the system updates the payment and rotation status when a successful payment event is received
-
+|---|---|
 | Priority | P1 |
 | Tools | App, payment provider dashboard (test mode), SQL client, Postman |
 | Preconditions | Student is signed up. The wizard is completed. The rotation is created. The system has a public and available preceptor. The preceptor is added to the rotation, and the rotation is waiting for payment. |
@@ -144,7 +144,7 @@
 ### TC-SEC-001
 
 **Title:** Verify that a student is not able to see another student's data by changing the record ID
-
+|---|---|
 | Priority | P1 |
 | Tool | Postman |
 | Preconditions | Student 1 is signed up. Student B is signed up. Both students have the wizard completed. Both students have the rotations created. Logged in as Student 1. |

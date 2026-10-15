@@ -1,4 +1,4 @@
-# Test cases: Clinical Placement Platform
+# Test cases
 
 | Field | Value |
 |---|---|
@@ -28,17 +28,26 @@
 ### TC-RES-001
 
 **Title:** Verify that a preceptor who cannot take more students in this date range is not available for students to reserve
-| | |
-|---|---|
-| Priority | P1 |
-| Preconditions | Student is signed up. The student's wizard is completed. The Home page is opened. Preceptor is public and available; max number of students = 1. |
-| Test data |Test card for a successful payment |
+<table>
+  <tr>
+    <td><b>Priority</b></td>
+    <td>P1</td>
+  </tr>
+  <tr>
+    <td><b>Preconditions</b></td>
+    <td>Student is signed up. The student's wizard is completed. The Home page is opened. Preceptor is public and available, max number of students = 1.</td>
+  </tr>
+  <tr>
+    <td><b>Test data</b></td>
+    <td>Test card for a successful payment</td>
+  </tr>
+</table>
 
 | # | Steps| Expected result |
 |---|---|---|
 | 1 | Search the preeceptor by Id. | The preceptor is found. |
 | 2 | Click the Reserve button. | The reservation and payment page is opened. |
-| 3 | Select the rotation dates and hours (Mar 2 – Apr 24, 120 hours).| The dates and horse are setlected. |
+| 3 | Select the rotation dates and hours (Mar 2 – Apr 24, 120 hours).| The dates and hours are selected. |
 | 4 | Add the payment card. | The card is added. |
 | 5 | Click the [Reserve] button. | The payment is charged. The rotation has Deposit Paid status. |
 | 6 | On the Home page, search for the same preceptor again by ID. | P1 is found by ID. |

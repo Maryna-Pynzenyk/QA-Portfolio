@@ -6,8 +6,9 @@
 | Author | Maryna (QA Engineer) |
 
 ## Contents
-|---|---|
+
 | Section | Count | Link |
+|---|---|
 | Test cases | 7 | [open](#test-cases) |
 | BDD test cases | 9 features | [open](#bdd-test-cases) |
 

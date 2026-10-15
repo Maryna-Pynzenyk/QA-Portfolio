@@ -1,4 +1,4 @@
-# Bug Reports
+## Bug Reports
 
 | ID | Summary | Priority | Status |
 |---|---|---|---|

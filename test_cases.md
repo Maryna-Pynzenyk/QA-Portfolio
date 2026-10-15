@@ -31,10 +31,7 @@
 | Field | Value |
 |---|---|
 | Priority | P1 |
-| Preconditions | Student is signed up. 
-The student's wizard is completed. 
-The Home page is opened. 
-Preceptor is public and available, max number of students = 1. |
+| Preconditions | Student is signed up. The student's wizard is completed. The Home page is opened. Preceptor is public and available, max number of students = 1. |
 | Test data |Test card for a successful payment |
 
 | # | Action | Expected result |

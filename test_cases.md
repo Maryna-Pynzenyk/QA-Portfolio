@@ -5,10 +5,11 @@
 | Application | Clinical Placement Platform (web application + API) |
 | Author | Maryna (QA Engineer) |
 
+
 ## Contents
 
 | Section | Count | Link |
-|---|---|
+|---|---|---|
 | Test cases | 7 | [open](#test-cases) |
 | BDD test cases | 9 features | [open](#bdd-test-cases) |
 
@@ -27,9 +28,10 @@
 ### TC-RES-001
 
 **Title:** Verify that a preceptor who cannot take more students in this date range is not available for students to reserve
+| | |
 |---|---|
 | Priority | P1 |
-| Preconditions | Student is signed up. The student's wizard is completed. The Home page is opened. Preceptor is public and available, max number of students = 1. |
+| Preconditions | Student is signed up. The student's wizard is completed. The Home page is opened. Preceptor is public and available; max number of students = 1. |
 | Test data |Test card for a successful payment |
 
 | # | Steps| Expected result |

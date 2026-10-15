@@ -196,7 +196,7 @@
   </tr>
   <tr>
     <td><b>Tools</b></td>
-    <td>App, payment provider dashboard (test mode), SQL client, Postman</td>
+    <td>Stripe app, SQL database, Postman</td>
   </tr>
   <tr>
     <td><b>Preconditions</b></td>

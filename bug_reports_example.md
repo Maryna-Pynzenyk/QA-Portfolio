@@ -45,7 +45,7 @@ The error "The user with the provided email already exists (EMAIL_EXISTS)." is d
 
 
 
-#CPP-BUG-002
+# CPP-BUG-002
 
 **Summary:** [Payments] Partial refund in Stripe for rotation is shown as a full refund in the Admin panel
 
@@ -87,7 +87,7 @@ The admin panel shows the correct partial refund amount, matching the amount ref
 
 
 
-## CPP-BUG-003
+# CPP-BUG-003
 
 **Summary:** [Regression] Page fails to load when filtering by two Programs of Study on the Students tab – GraphQL error: programOfStudy Int cannot represent non-integer value
 
@@ -139,7 +139,7 @@ Filtering by two or more Programs of Study should successfully return a filtered
 
 
 
-## CPP-BUG-004
+# CPP-BUG-004
 
 **Summary:** [Rotation Constants] Inline edit returns Success, but no field values are saved while updating rotation constants
 
@@ -197,7 +197,7 @@ The value is saved and shows 200 after reload. The `rotationConstants` query ret
 
 
 
-## CPP-BUG-005
+# CPP-BUG-005
 
 **Summary:** API: `POST /api/v1/rotations/{id}/hours` accepts a negative hours value during rotation creation and returns 201 Created
 

@@ -4,7 +4,6 @@
 |---|---|
 | Application | Clinical Placement Platform (web application + API) |
 | Author | Maryna (QA Engineer) |
-| Environment | Staging |
 
 ## Contents
 

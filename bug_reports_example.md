@@ -1,10 +1,5 @@
 # Bug Reports
 
-| Field | Value |
-|---|---|
-| Application | Clinical Placement Platform (web application) |
-| Author | Maryna (QA Engineer) |
-
 | ID | Summary | Priority | Status |
 |---|---|---|---|
 | [CPP-BUG-001](#cpp-bug-001) | [Admin Panel – Coordinators] Generic "Not created" error is shown instead of the EMAIL_EXISTS error when creating a CC with an existing email in the Admin panel | Medium | Ready |
@@ -14,7 +9,7 @@
 | [CPP-BUG-005](#cpp-bug-005) | API: `POST /api/v1/rotations/{id}/hours` accepts a negative hours value during rotation creation and returns 201 Created | High | Open |
 
 
-## CPP-BUG-001
+# CPP-BUG-001
 
 **Summary:** [Admin Panel – Coordinators] Generic "Not created" error is shown instead of the EMAIL_EXISTS error when creating a CC with an existing email in the Admin panel
 
@@ -50,7 +45,7 @@ The error "The user with the provided email already exists (EMAIL_EXISTS)." is d
 
 
 
-## CPP-BUG-002
+#CPP-BUG-002
 
 **Summary:** [Payments] Partial refund in Stripe for rotation is shown as a full refund in the Admin panel
 
@@ -69,9 +64,9 @@ When a payment is partially refunded via Stripe, the admin panel incorrectly dis
 ### Steps to reproduce
 1. Open Stripe test mode.
 2. Open the created and paid rotation.
-3. Click Refund.
+3. Click the [Refund] button.
 4. Enter half of the sum.
-5. Confirm refund.
+5. Confirm the refund.
 6. Log in to the admin panel as CC.
 7. Navigate to the rotation associated with the partially refunded payment.
 8. Open the Finances details for that rotation.
@@ -110,7 +105,7 @@ When filtering by two Programs of Study on the Students tab page, the page fails
 3. Observe that the page fails to load and an error is returned.
 
 ### Actual result
-The page fails to load and the following GraphQL error is returned:
+The page fails to load, and the following GraphQL error is returned:
 
 ```json
 {
@@ -148,8 +143,6 @@ Filtering by two or more Programs of Study should successfully return a filtered
 
 **Summary:** [Rotation Constants] Inline edit returns Success, but no field values are saved while updating rotation constants
 
-| Field | Value |
-|---|---|
 | Priority | High |
 
 ### Description

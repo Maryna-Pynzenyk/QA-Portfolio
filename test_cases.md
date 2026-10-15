@@ -93,22 +93,25 @@
 
 ### TC-API-002
 
-**Title:** Verify that a CC is able to get the students list via API filtered by multiple Programs of Study with correct pagination
+**Title:** Verify that a CC is able to get the students list via API filtered by two Programs of Study
 
 | Field | Value |
 |---|---|
 | Priority | P2 |
-| Request | `GET {{baseUrl}}/students?programOfStudy=…&page=…&pageSize=…` |
-| Preconditions | Valid `adminToken`. Test students in programs with IDs 3, 10 and 12. |
+| Tool | Postman |
+| Request | `GET {{baseUrl}}/students?programOfStudy=3&programOfStudy=10` |
+| Preconditions | Postman environment with `baseUrl` is selected. Valid `adminToken` (CC) is saved in the environment. Test students exist in programs with IDs 3 and 10, and in at least one other program (for example 12). |
+| Test data | `programOfStudy` = 3 and 10 |
 
-| # | Query | Expected result |
+| # | Action | Expected result |
 |---|---|---|
-| 1 | `programOfStudy=3` | 200. Every item has `programOfStudy = 3`. |
-| 2 | `programOfStudy=3&programOfStudy=10` | 200. Items from programs 3 and 10 only. |
-| 3 | `programOfStudy=3&programOfStudy=10&programOfStudy=12` | 200. Items from all three programs. |
-| 4 | `programOfStudy=abc` | 400 validation error. |
-| 5 | Row 2 + `page=1&pageSize=10` | Max 10 items, `totalCount` equals the SQL count for programs 3 and 10. |
-| 6 | Row 5 with `page=999` | 200 and an empty list. |
+| 1 | Create a new `GET` request with the URL `{{baseUrl}}/students`. | URL is resolved with the value from the environment. |
+| 2 | Open the Authorization tab, select Bearer Token and enter `{{adminToken}}`. | Token is added to the request headers. |
+| 3 | Open the Params tab and add two keys: `programOfStudy` = `3` and `programOfStudy` = `10`. | URL changes to `{{baseUrl}}/students?programOfStudy=3&programOfStudy=10`. |
+| 4 | Click Send. | Status is `200 OK`. |
+| 5 | Check the response body. | No `errors` field in the response. The list is not empty. |
+| 6 | Check `programOfStudy` of every student in the list. | Every student has `programOfStudy` 3 or 10. No students from other programs (for example 12). |
+| 7 | Compare the number of students in the response with the number of test students in programs 3 and 10. | The numbers match. |
 
 ### TC-DB-001
 

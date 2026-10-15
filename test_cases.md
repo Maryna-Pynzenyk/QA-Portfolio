@@ -37,14 +37,14 @@
 | # | Action | Expected result |
 |---|---|---|
 | 1 | Search the preeceptor by Id. | The preceptor is found. |
-| 2 | Click Reserve button. | The reservation and payment page is opened. |
+| 2 | Click the Reserve button. | The reservation and payment page is opened. |
 | 3 | Select the rotation dates and hours (Mar 2 – Apr 24, 120 hours).| The dates and horse are setlected. |
 | 4 | Add the payment card. | The card is added. |
-| 4 | Click [Reserve] button. | The payment is charged. The rotation has Deposit Paid status. |
-| 5 | On the Home page search for the same preceptor again by ID. | P1 is found by ID. |
-| 6 | Click Reserve button. | The reservation and payment page is opened. The payment card is already predefined to the dafaul value that was charged previously. |
-| 7 | Select the same dates and hours as in step 3 (Mar 2 – Apr 24, 120 hours). | Message that the preceptor has no available spots for these dates. |
-| 8 | Try to click the [Reserve] to finish the reservation. | Payment is not taken and the reservation is not created. |
+| 5 | Click the [Reserve] button. | The payment is charged. The rotation has Deposit Paid status. |
+| 6 | On the Home page, search for the same preceptor again by ID. | P1 is found by ID. |
+| 7 | Click the [Reserve] button. | The reservation and payment page is opened. The payment card is already predefined to the default value that was charged previously. |
+| 8 | Select the same dates and hours as in step 3 (Mar 2 – Apr 24, 120 hours). | Message that the preceptor has no available spots for these dates. |
+| 9 | Try to click [Reserve] to finish the reservation. | Payment is not taken, and the reservation is not created. |
 
 ### TC-RES-002
 
@@ -53,34 +53,34 @@
 | Field | Value |
 |---|---|
 | Priority | P1 |
-| Preconditions | Student is signed up. The wizard is completed. The rotation is created. The system has the public and available preceptor. The student is logged in to the app. |
+| Preconditions | Student is signed up. The wizard is completed. The rotation is created. The system has a public and available preceptor. The student is logged in to the app. |
 | Test data | Test card for a successful payment |
 
 | # | Action | Expected result |
 |---|---|---|
 | 1 | Open a created rotation. | The rotation is opened. |
 | 2 | Select the available preceptor from the list. | The preceptor is selected. The preceptor's profile is opened. |
-| 3 | Click [Create a reserve button]. | The reservation and payment page is opened. |
-| 4 | Select the rotation dates and hours. | The dates and horse are setlected. |
+| 3 | Click the [Create a reservation] button. | The reservation and payment page is opened. |
+| 4 | Select the rotation dates and hours. | The dates and horse are selected. |
 | 5 | Add the payment card. | The card is added. |
-| 6 | Click [Reserve] button. | The payment is charged. The rotation has Deposit Paid status. No preceptor's info is shown to the student.|
-| 7 | Navigate to the Admin panel and log in as CC. | the Rotations tab page is opened and CC is logged in. |
-| 8 | Seach for the created and payed rotation by ID. |  The rotation is shown in the list. | 
+| 6 | Click the [Reserve] button. | The payment is charged. The rotation has Deposit Paid status. No preceptor's info is shown to the student.|
+| 7 | Navigate to the Admin panel and log in as CC. | The Rotations tab page is opened, and CC is logged in. |
+| 8 | Search for the created and paid rotation by ID. |  The rotation is shown in the list. | 
 | 9 | Open the rotation. | The rotation  is opened. |
-| 10 | Move the totation forward using the timeline to charge the next payment. | The rotation status is changed to The Second Payment Paid. The payment is charged. |
-| 11 | Navigate back to the rotation view in the student' profile. | The rotation page is opened. The new status is shown. Preceptor's name, contacts and profile link are now shown. 
+| 10 | Move the rotation forward using the timeline to charge the next payment. | The rotation status is changed to The Second Payment Paid. The payment is charged. |
+| 11 | Navigate back to the rotation view in the student's profile. | The rotation page is opened. The new status is shown. Preceptor's name, contacts and profile link are now shown. 
 
 ### TC-API-001
 
-**Title:** Verify that an admin is not able to save rotation hours via API with negative value
+**Title:** Verify that an admin is not able to save rotation hours via API with a negative value
 
 | Field | Value |
 |---|---|
 | Priority | P1 |
 | Request | `POST {{baseUrl}}/rotations/{{rotationId}}/hours` |
-| Preconditions | Valid `adminToken`. A new rotation exists, its ID is saved to `rotationId`. |
+| Preconditions | Valid `adminToken`. A new rotation exists; its ID is saved to `rotationId`. |
 
-**Steps:** send the body from the table, check the status and the response, then call `GET /rotations/{{rotationId}}` and check what was saved in `hours`.
+**Steps:** Send the body from the table, check the status and the response, then call `GET /rotations/{{rotationId}}` and check what was saved in `hours`.
 
 | # | Body | Expected status | Expected result |
 |---|---|---|---|

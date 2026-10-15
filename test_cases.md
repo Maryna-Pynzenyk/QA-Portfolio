@@ -8,7 +8,6 @@
 ## Contents
 
 | Section | Count | Link |
-|---|---|---|
 | Test cases | 7 | [open](#test-cases) |
 | BDD test cases | 9 features | [open](#bdd-test-cases) |
 
@@ -28,13 +27,11 @@
 
 **Title:** Verify that a preceptor who cannot take more students in this date range is not available for students to reserve
 
-| Field | Value |
-|---|---|
 | Priority | P1 |
 | Preconditions | Student is signed up. The student's wizard is completed. The Home page is opened. Preceptor is public and available, max number of students = 1. |
 | Test data |Test card for a successful payment |
 
-| # | Action | Expected result |
+| # | Steps| Expected result |
 |---|---|---|
 | 1 | Search the preeceptor by Id. | The preceptor is found. |
 | 2 | Click the Reserve button. | The reservation and payment page is opened. |
@@ -50,13 +47,11 @@
 
 **Title:** Verify that a student is not able to see the preceptor's profile until the last payment is charged
 
-| Field | Value |
-|---|---|
 | Priority | P1 |
 | Preconditions | Student is signed up. The wizard is completed. The rotation is created. The system has a public and available preceptor. The student is logged in to the app. |
 | Test data | Test card for a successful payment |
 
-| # | Action | Expected result |
+| # | Steps | Expected result |
 |---|---|---|
 | 1 | Open a created rotation. | The rotation is opened. |
 | 2 | Select the available preceptor from the list. | The preceptor is selected. The preceptor's profile is opened. |
@@ -74,15 +69,13 @@
 
 **Title:** Verify that an admin is not able to save rotation hours via API with a negative value
 
-| Field | Value |
-|---|---|
-| Priority | P1 |
+| Priority | P2 |
 | Tool | Postman |
 | Request | `POST {{baseUrl}}/rotations/{{rotationId}}/hours` |
 | Preconditions | Postman environment with `baseUrl` is selected. Valid `adminToken` is saved in the environment. A new rotation exists, its ID is saved to `rotationId`. |
 | Test data | `{"hours": -40}` |
 
-| # | Action | Expected result |
+| # |Steps| Expected result |
 |---|---|---|
 | 1 | Create a new `POST` request with the URL `{{baseUrl}}/rotations/{{rotationId}}/hours`. | URL is resolved with the values from the environment. |
 | 2 | Open the Authorization tab, select Bearer Token and enter `{{adminToken}}`. | Token is added to the request headers. |
@@ -95,15 +88,13 @@
 
 **Title:** Verify that a CC is able to get the students list via API filtered by two Programs of Study
 
-| Field | Value |
-|---|---|
 | Priority | P2 |
 | Tool | Postman |
 | Request | `GET {{baseUrl}}/students?programOfStudy=3&programOfStudy=10` |
 | Preconditions | Postman environment with `baseUrl` is selected. Valid `adminToken` (CC) is saved in the environment. Test students exist in programs with IDs 3 and 10, and in at least one other program (for example 12). |
 | Test data | `programOfStudy` = 3 and 10 |
 
-| # | Action | Expected result |
+| # | Steps | Expected result |
 |---|---|---|
 | 1 | Create a new `GET` request with the URL `{{baseUrl}}/students`. | URL is resolved with the value from the environment. |
 | 2 | Open the Authorization tab, select Bearer Token and enter `{{adminToken}}`. | Token is added to the request headers. |
@@ -115,55 +106,62 @@
 
 ### TC-DB-001
 
-**Title:** Verify that a new student record is saved with the correct data after sign-up
+**Title:** Verify that a new student record is saved in the database with the correct data after sign-up
 
-| Field | Value |
-|---|---|
 | Priority | P1 |
-| Preconditions | Email `student.qa+db001@test.example` is not registered. Access to the staging database (read-only). |
+| Tool | SQL client
+| Preconditions | Email `student.qa+db001@test.example` is not registered. Program of Study "Family Nurse Practitioner" exists. |
+| Test data | Email: `student.qa+db001@test.example`, First name: Anna, Last name: Smith, Program of Study: Family Nurse Practitioner |
 
-| # | Action | Expected result |
+| # | Steps | Expected result |
 |---|---|---|
-| 1 | Sign up as a student with the test data (UI). | Sign-up is successful. |
-| 2 | Run: `SELECT id, email, role, is_verified FROM users WHERE LOWER(email) = LOWER('student.qa+db001@test.example');` | Exactly 1 row, `role` = STUDENT, `is_verified` = FALSE. |
-| 3 | Run: `SELECT s.first_name, s.last_name, p.name, s.status FROM students s JOIN programs_of_study p ON p.id = s.program_of_study_id WHERE s.user_id = <id from step 2>;` | 1 row: Anna, Smith, Family Nurse Practitioner, ACTIVE. |
-| 4 | Verify the email (UI), then repeat step 2. | `is_verified` = TRUE. |
-| 5 | Check the `users` table for the password. | Password is not stored as plain text. |
+| 1 | In the app, sign up as a student with the test data. | Sign-up is successful. |
+| 2 | In the SQL client, run:<br>`SELECT id, email, role FROM users WHERE LOWER(email) = LOWER('student.qa+db001@test.example');` | Exactly 1 row is returned. `email` = `student.qa+db001@test.example`, `role` = STUDENT. |
+| 3 | Copy the `id` from step 2 and run:<br>`SELECT s.first_name, s.last_name, p.name, s.status FROM students s JOIN programs_of_study p ON p.id = s.program_of_study_id WHERE s.user_id = <id from step 2>;` | Exactly 1 row is returned: Anna, Smith, Family Nurse Practitioner, ACTIVE. |
 
 ### TC-BE-001
 
-**Title:** Verify that the system updates the payment and rotation status when a payment event is received
+**Title:** Verify that the system updates the payment and rotation status when a successful payment event is received
 
-| Field | Value |
-|---|---|
 | Priority | P1 |
-| Preconditions | Student is signed up. The wizard is completed. The rotation is created. The system has the public and available preceptor. the preceptor is added to the rotation. |
+| Tools | App, payment provider dashboard (test mode), SQL client, Postman |
+| Preconditions | Student is signed up. The wizard is completed. The rotation is created. The system has a public and available preceptor. The preceptor is added to the rotation, and the rotation is waiting for payment. |
+| Test data | Test card for a successful payment |
 
-| # | Action | Expected result | How to verify |
-|---|---|---|---|
-| 1 | As the student, pay for `R1` with a successful test card. | Payment provider sends a "payment succeeded" event to the backend. | Payment provider dashboard → event delivered, response 200. |
-| 2 | Check the payment record. | One payment for `R1`, status PAID, amount matches the price. | SQL: `SELECT * FROM payments WHERE rotation_id = R1;` |
-| 3 | Check the rotation status. | `R1` status = CONFIRMED. | API: `GET /rotations/R1`, SQL |
-| 4 | Check notifications. | Payment receipt email to the student, confirmation to the preceptor. | Test mailbox |
-| 5 | Repeat steps 1–3 with a declined test card. | Payment status FAILED, rotation stays ACCEPTED, student can try again. | SQL, UI |
+| # | Steps| Expected result |
+|---|---|---|
+| 1 | Open a created rotation. | The rotation is opened. |
+| 2 | Select the available preceptor from the list. | The preceptor is selected. The preceptor's profile is opened. |
+| 3 | Click the [Create a reservation] button. | The reservation and payment page is opened. |
+| 4 | Select the rotation dates and hours. | The dates and horse are selected. |
+| 5 | Add the payment card. | The card is added. |
+| 6 | Click the [Reserve] button. | The payment is charged. The rotation has Deposit Paid status. |
+| 7 | Open Stripe and look for the payment Id to see the status. | The payment status is Successful. |
+| 8 | In the database, run:<br>`SELECT rotation_id, amount, status FROM payments WHERE rotation_id = 'R1';` | Exactly 1 row is returned. `status` = PAID, `amount` matches the rotation price. |
+| 9 | In Postman, send `GET {{baseUrl}}/rotations/R1` with the student's token. | Status is `200 OK`. Rotation `status` = CONFIRMED. |
+| 10 | In the app, refresh the rotation page. | Rotation is shown as Deposit Paid. |
 
 ### TC-SEC-001
 
 **Title:** Verify that a student is not able to see another student's data by changing the record ID
 
-| Field | Value |
-|---|---|
 | Priority | P1 |
-| Preconditions | Student A and Student B, each with a rotation and documents. Logged in as Student A. |
+| Tool | Postman |
+| Preconditions | Student 1 is signed up. Student B is signed up. Both students have the wizard completed. Both students have the rotations created. Logged in as Student 1. |
 
-| # | Action | Expected result |
+| # | Steps | Expected result |
 |---|---|---|
-| 1 | Open own rotation `/rotations/{A_rotationId}` | 200, data shown |
-| 2 | Change the ID in the URL to `{B_rotationId}` | 403 or 404, no data of Student B |
-| 3 | `GET /rotations/{B_rotationId}` with Student A token | 403 or 404 |
-| 4 | `GET /students/{B_studentId}/documents` with Student A token | 403 or 404, no file links |
-| 5 | Open a direct file link of Student B's document | Access denied (or the link has expired) |
-| 6 | `POST /rotations/{B_rotationId}/hours` with Student A token | 403, nothing saved |
+| 1 | Create a new `POST` request with the URL `{{baseUrl}}/auth/login`. | URL is resolved with the value from the environment. |
+| 2 | Open the Body tab, select raw → JSON and enter:<br>`{"email": "<student 1 email>", "password": "<student 1 password>"}` | Body is valid JSON. |
+| 3 | Click Send. | Status is `200 OK`. Response contains `accessToken`. |
+| 4 | Copy `accessToken` from the response and save it in the environment as `token_1`. | `token_1` is saved. |
+| 5 | Create a new `GET` request with the URL `{{baseUrl}}/rotations/{{rotationId_1}}`. | URL is resolved with Student 1's rotation ID. |
+| 6 | Open the Authorization tab, select Bearer Token and enter `{{token_1}}`. | Token is added to the request headers. |
+| 7 | Click Send. | Status is `200 OK`. Response contains Student 1's rotation data. |
+| 8 | In the same request, change the URL to `{{baseUrl}}/rotations/{{rotationId_2}}`. Keep `{{token_1}}` in the Authorization tab. | URL is resolved with Student 2's rotation ID. |
+| 9 | Click Send. | Status is `403 Forbidden` or `404 Not Found`. |
+| 10 | Check the response body. | No data of Student 2: no name, dates, preceptor, documents or payment details. Only an error message. |
+| 11 | Change the URL back to `{{baseUrl}}/rotations/{{rotationId_1}}` and click Send. | Status is `200 OK`. Student 1's rotation data is returned, so the token still works. |
 
 
 ## BDD test cases

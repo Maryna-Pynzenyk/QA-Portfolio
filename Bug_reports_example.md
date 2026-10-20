@@ -1,19 +1,18 @@
 ## Bug Reports
 
-| ID | Summary | Priority | Status |
-|---|---|---|---|
-| [CPP-BUG-001](#cpp-bug-001) | [Admin Panel – Coordinators] Generic "Not created" error is shown instead of the EMAIL_EXISTS error when creating a CC with an existing email in the Admin panel | Medium | Ready |
-| [CPP-BUG-002](#cpp-bug-002) | [Payments] Partial refund in Stripe for rotation is shown as a full refund in the Admin panel | High | In Progress|
-| [CPP-BUG-003](#cpp-bug-003) | [Regression] Page fails to load when filtering by two Programs of Study on the Students tab – GraphQL error: programOfStudy Int cannot represent non-integer value | Medium | Done |
-| [CPP-BUG-004](#cpp-bug-004) | [Rotation Constants] Inline edit returns Success, but no field values are saved while updating rotation constants | High | To DO |
-| [CPP-BUG-005](#cpp-bug-005) | API: `POST /api/v1/rotations/{id}/hours` accepts a negative hours value during rotation creation and returns 201 Created | High | Open |
+| ID | Title| Priority |
+|---|---|---|
+| [CPP-BUG-001](#cpp-bug-001) | [Admin Panel – Coordinators] Generic "Not created" error is shown instead of the EMAIL_EXISTS error when creating a CC with an existing email in the Admin panel | Medium |
+| [CPP-BUG-002](#cpp-bug-002) | [Payments] Partial refund in Stripe for rotation is shown as a full refund in the Admin panel | High |
+| [CPP-BUG-003](#cpp-bug-003) | [Regression] Page fails to load when filtering by two Programs of Study on the Students tab – GraphQL error: programOfStudy Int cannot represent non-integer value | Medium |
+| [CPP-BUG-004](#cpp-bug-004) | [Rotation Constants] Inline edit returns Success, but no field values are saved while updating rotation constants in the Admin panel| High |
+| [CPP-BUG-005](#cpp-bug-005) | API: `POST /api/v1/rotations/{id}/hours` accepts a negative hours value during rotation creation and returns 201 Created | High |
 
 
 ## CPP-BUG-001
 
-**Summary:** [Admin Panel – Coordinators] Generic "Not created" error is shown instead of the EMAIL_EXISTS error when creating a CC with an existing email in the Admin panel
-
-| Priority | Medium |
+### Title
+[Admin Panel – Coordinators] Generic "Not created" error is shown instead of the EMAIL_EXISTS error when creating a CC with an existing email in the Admin panel
 
 ### Description
 When a CC is created in the admin panel with an email that already belongs to an existing user, the UI shows a generic "Not created" error instead of the specific EMAIL_EXISTS message. The admin can't tell why creation failed or how to fix it.
@@ -48,9 +47,8 @@ The error "The user with the provided email already exists (EMAIL_EXISTS)." is d
 
 ## CPP-BUG-002
 
-**Summary:** [Payments] Partial refund in Stripe for rotation is shown as a full refund in the Admin panel
-
-| Priority | High|
+### Title
+[Payments] Partial refund in Stripe for rotation is shown as a full refund in the Admin panel
 
 ### Description
 When a payment is partially refunded via Stripe, the admin panel incorrectly displays the payment as fully refunded, misrepresenting the actual refund amount to the CC.
@@ -91,9 +89,8 @@ The admin panel shows the correct partial refund amount, matching the amount ref
 
 ## CPP-BUG-003
 
-**Summary:** [Regression] Page fails to load when filtering by two Programs of Study on the Students tab – GraphQL error: programOfStudy Int cannot represent non-integer value
-
-| Priority | Medium |
+### Title
+[Regression] Page fails to load when filtering by two Programs of Study on the Students tab – GraphQL error: programOfStudy Int cannot represent non-integer value
 
 ### Description
 When filtering by two Programs of Study on the Students tab page, the page fails to load, and a GraphQL error is returned. The error indicates that the `programOfStudy` array values are being passed as strings instead of integers, causing the query to fail.
@@ -144,9 +141,8 @@ Filtering by two or more Programs of Study should successfully return a filtered
 
 ## CPP-BUG-004
 
-**Summary:** [Rotation Constants] Inline edit returns Success, but no field values are saved while updating rotation constants
-
-| Priority | High |
+### Title
+[Rotation Constants] Inline edit returns Success, but no field values are saved while updating rotation constants in the Admin panel
 
 ### Description
 On the admin Rotation Constants page, saving any field shows a success message, but the value isn't actually saved. After a reload, the old value comes back.
@@ -203,9 +199,8 @@ The value is saved and shows 200 after reload. The `rotationConstants` query ret
 
 ## CPP-BUG-005
 
-**Summary:** API: `POST /api/v1/rotations/{id}/hours` accepts a negative hours value during rotation creation and returns 201 Created
-
-| Priority | High |
+### Title
+API: `POST /api/v1/rotations/{id}/hours` accepts a negative hours value during rotation creation and returns 201 Created
 
 ### Preconditions
 - A valid access token for an admin user.

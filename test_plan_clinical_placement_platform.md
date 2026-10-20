@@ -1,4 +1,3 @@
-# Master Test Plan – Clinical Placement Platform
 
 | Field | Value |
 |---|---|
@@ -9,10 +8,10 @@
 | Application under test | Clinical Placement Platform (web application) |
 | Document type | Master Test Plan |
 
-> **Note:** This is a portfolio example. The product, data, people and requirements are fictional and generalized. It shows how I plan testing for a healthcare web platform; it does not describe any real company's system.
 
 
-## Table of Contents
+
+## Contents
 
 1. [Introduction](#1-introduction)
 2. [Test Items](#2-test-items)
@@ -50,7 +49,7 @@ The Clinical Placement Platform connects nursing students (Nurse Practitioner, A
 |---|---|
 | Student | Registers, completes a profile, uploads required documents, searches for preceptors, requests and pays for a clinical rotation, logs clinical hours |
 | Preceptor | Registers, sets specialty and availability, accepts or declines rotation requests, approves logged hours, completes student evaluations |
-| Admin (internal team) | Reviews documents, manages matches and rotations, handles exceptions and support requests |
+| Admin (CC) | Reviews documents, manages matches and rotations, handles exceptions and support requests |
 
 ### 1.3 Objectives
 - Define one consistent testing approach for the whole product.
@@ -63,14 +62,13 @@ The Clinical Placement Platform connects nursing students (Nurse Practitioner, A
 ### 1.4 Related documents
 | Document | Purpose | Location |
 |---|---|---|
-| Release test plan | Scope, schedule and resources for a specific release | `test-plans/` |
-| Regression test plan | Regression suite content and execution rules | `test-plans/` |
-| UAT plan | Business scenarios and sign-off process | `test-plans/` |
-| Manual test cases | Detailed test cases per module | [test-cases/manual_test_cases.md](../test-cases/manual_test_cases.md) |
-| E2E test cases | Cross-role user journeys | [test-cases/e2e_test_cases.md](../test-cases/e2e_test_cases.md) |
-| API test cases | Endpoint checks | [api-testing/api_test_cases.md](../api-testing/api_test_cases.md) |
-| SQL data checks | Data integrity queries | [sql-queries/](../sql-queries/) |
-| Automation project | Automated UI and API tests | [automation/](../automation/) |
+| Release test plan | Scope, schedule and resources for a specific release | `test-plan/` |
+| Regression test plan | Regression suite content and execution rules | `test-plan/` |
+| UAT plan | Business scenarios and sign-off process | `test-plan/` |
+| Manual test cases | Detailed test cases per module | `zephyr/test-cases/manual_test_cases/` |
+| API test cases | Endpoint checks | `zephyr/test-cases/api_test_cases/` |
+| SQL data checks | Data integrity queries | `zephyr/test-cases/sql_test_cases/` |
+| Automation project | Automated UI and API tests | `playright/test-cases/e2e_test_cases/` |
 
 
 ## 2. Test Items
@@ -152,6 +150,7 @@ The Clinical Placement Platform connects nursing students (Nurse Practitioner, A
 - **State transition** – rotation status, document status, request status (Pending → Accepted / Declined / Expired).
 - **Use case testing** – end-to-end journeys for each role.
 - **Error guessing** – double-clicking Pay, using browser Back after payment, uploading a renamed file, time zone differences in dates.
+-  **Exploratory testing** - defining a new scenarios.
 
 ### 6.2 Risk-based prioritization
 | Priority | Meaning | Examples |
@@ -194,8 +193,8 @@ The Clinical Placement Platform connects nursing students (Nurse Practitioner, A
 
 | Item | Details |
 |---|---|
-| OS | Windows 11, macOS, Android, iOS |
-| Browsers | Chrome, Firefox, Edge, Safari (latest versions) |
+| OS | Windows 11 |
+| Browsers | Chrome, Firefox, Edge) |
 | Viewports | 1920×1080, 1366×768, 768×1024 (tablet), 390×844 (mobile) |
 | Payments | Payment provider sandbox mode with test cards |
 | Emails | Test mailbox / email capture tool |
@@ -247,7 +246,7 @@ These criteria apply to system testing for every release. Criteria for other lev
 ## 11. Suspension and Resumption Criteria
 
 **Testing is suspended if:**
-- The test environment is unavailable for more than 2 hours.
+- The test environment is unavailable.
 - The smoke test fails (e.g., login or search does not work).
 - A blocker defect stops more than 30% of planned test cases.
 - A wrong build is deployed to the test environment.

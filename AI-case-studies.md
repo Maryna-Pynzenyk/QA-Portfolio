@@ -135,9 +135,9 @@ flowchart LR
 9. Tested rotations with no eligible preceptors to make sure the reply explained why, instead of inventing matches.
 
 ##  What I learned
-For AI features, separate what must be true (deterministic rules) from what can be ranked or explained (AI). Test them differently.
-An explanation is a testable output. Every claim must trace back to a data field.
-Small synthetic "trap" datasets catch visibility and eligibility bugs faster than large random data.
+- For AI features, separate what must be true (deterministic rules) from what can be ranked or explained. Test them differently.
+- An explanation is a testable output. Every claim must trace back to a data field.
+- Small synthetic "trap" datasets catch visibility and eligibility bugs faster than large random data.
 
 
 

@@ -48,10 +48,3 @@ Healthcare platforms, clinical research studies, sensitive data, HIPAA and FDA r
 
 ---
 
-## Why talk to me
-
-If you need a QA who will find the bugs, ask the uncomfortable questions early and come back with an idea instead of just a problem, let's talk.
-
-💼 [LinkedIn](#) · ✉️ [Email](#)
-
-<sub>All projects use public demo apps or fictional products, with no real company data.</sub>

@@ -1,17 +1,9 @@
-# Test cases
-
-| Field | Value |
-|---|---|
-| Application | Clinical Placement Platform (web application + API) |
-| Author | Maryna (QA Engineer) |
-
-
 ## Contents
 
-| Section | Count | Link |
-|---|---|---|
-| Test cases | 7 | [open](#test-cases) |
-| BDD test cases | 9 features | [open](#bdd-test-cases) |
+| Section | Link |
+|---|--|
+| Test cases | [open](#test-cases) |
+| BDD test cases | [open](#bdd-test-cases) |
 
 ## Test cases
 

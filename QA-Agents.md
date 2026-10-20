@@ -101,39 +101,27 @@ flowchart TD
 
 ### 1. Problem
 
-- While testing, I write bugs down as quick notes, with shorthand and typos.
-- Turning each note into a full Jira ticket took time and pulled me out of testing.
+- Every ticket needs the full structure: title in the team format, preconditions, steps, actual and expected results, and environment.
+- Writing each one by hand was repetitive and took time away from testing.
 
 ### 2. What it does
 
 1. Takes my short note and writes a full bug report: title, description, preconditions, steps, actual and expected results, environment.
-2. Follows the team's title format: `[Module] Short description of the issue`.
-3. Uses any technical evidence I give it (console errors, API responses) to suggest a likely cause.
-4. Splits a note that describes more than one problem into separate tickets.
-5. Lists its assumptions and creates the ticket in Jira only after I approve it.
+2. Understands my notes because it knows the project: user roles, interfaces, main flows and rotation statuses.
+3. If my note is missing something important, it asks before writing, for example which role was logged in, which interface I used, what status the rotation was in, or which environment it happened in.
+4. Follows the team's title format: `[Module] Short description of the issue`.
+5. Uses any technical evidence I give it (console errors, API responses) to suggest a likely cause.
+6. Splits a note that describes more than one problem into separate tickets.
+7. After my review, creates the ticket in Jira and shares the link.
 
 ### 3. How I built it
 
-1. Defined the ticket structure, title format and default environment, so every report looks the same.
-2. Connected the agent to Jira through the Atlassian MCP, so it can create tickets and add comments.
-3. Added a review step: the agent shows the draft first and asks before creating anything.
-4. Taught it to state its assumptions (role, environment, expected behavior) instead of guessing silently.
+1. Gave the agent full project context: user roles, the app and admin panel, main flows, rotation statuses and how they change.
+2. Defined the ticket structure, title format and default environment, so every report looks the same.
+3. Set a list of required details (role, interface, rotation status, environment). If any of them is missing from my note, the agent asks short questions instead of guessing.
+4. Connected the agent to Jira through the Atlassian MCP, so it can create tickets and add comments.
+5. Added a review step: the agent shows the draft first and creates the ticket only after I approve it.
 
 ### 4. How it looks in chat
 
-<!-- Drag bug-report-agent-mock.png here -->
-
-<sub>Illustrative mock-up. Synthetic data.</sub>
-
----
-
-## What I learned
-
-- An agent is only as good as its rules. Most of my time went into deciding what "a complete ticket" or "a good bug report" means, not into the AI itself.
-- The most useful thing an agent can say is "I don't know". Asking instead of guessing is what made the team trust the output.
-- Keeping a person in the loop costs a few seconds and prevents most mistakes. Nothing reaches Jira without my review.
-- Shared agents raise the level for the whole team. Everyone gets the same checks, not just the person who remembers them.
-
----
-
-<sub>All ticket IDs, names and examples on this page are made up. Nothing is copied from the real system.</sub>
+<img width="392" height="656" alt="image" src="https://github.com/user-attachments/assets/08291815-c42b-40a1-b9b1-478e6c1fe5a0" />

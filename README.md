@@ -1,112 +1,79 @@
-# Maryna · QA Engineer
+# Finding the Gaps
+Where product ambition, team chaos, and user quirks collide, I'm the one holding the map, the compass, and occasionally the fire extinguisher.
 
-Where product ambition, team chaos and user quirks collide, I'm the one holding the map, the compass and, now and then, the fire extinguisher.
+For the past 6 years, I've been working as a QA Engineer, mostly on healthcare products, where every test protects a real person on the other side of the screen.
 
-I've worked in QA for 6 years, mostly on healthcare products, where every test protects a real person on the other side of the screen. I've been the only QA on a project, building the process from scratch, and part of large multicultural teams, where listening and explaining mattered as much as testing. I'm used to running two live projects at once without letting either slip.
+My background covers QA at different scales. I've been the only QA on a project, building the processes from scratch. I've also been part of large, multicultural teams, where listening, explaining and reaching out mattered as much as the testing itself. I'm used to running two live projects at once and switching between them without letting either slip.
 
-## Problems I can solve
+## What Problems I can Solve
 
-**Your team has no QA process.**
-On my current project, developers tested their own changes. I set up how and what we test, what's needed before testing starts, what goes into a release and what regression covers. I joined for a short time and stayed.
+» Bringing structure to projects where documentation lives in conversations, spreadsheets, and people's heads
 
-**Tickets are hard to test.**
-I check requirements before any code is written. I built an AI agent that reviews new tickets for gaps and writes acceptance criteria. [See the Requirements Agent](#)
+» Helping teams move from developer-only testing to a dedicated QA approach focused on risk, validation, and user impact.
 
-**People lose time on manual work.**
-While testing, I notice where users and the team get stuck. I suggested two AI features to fix it: a morning action list and a preceptor recommender. [See the case studies](#)
+» Finding the gaps between requirements, implementation, and actual user behavior.
 
-**You're adding AI and need to test it.**
-I test fixed rules separately from AI ranking, check every claim against the data, and use small "trap" datasets to catch what shouldn't appear. [See how I tested the recommender](#)
+» Keeping quality visible across multiple active projects without losing sight of risks or release readiness.
 
-**Bugs bounce between QA and devs.**
-My bug reports come with steps, data, logs and SQL checks. The same bug sounds like a challenge to devs and a solved mystery to clients.
+» Turning large amounts of product data into clear, actionable insights for the people making decisions.
 
-**Your product works with sensitive data.**
-Healthcare platforms, clinical research studies, HIPAA and FDA requirements. I know one missed check can mean a wrong record.
+» Making release decisions less dependent on guesswork and more on evidence.
 
-## My toolkit
+» Challenging assumptions before they become customer-reported bugs.
 
-Tested, proven and occasionally caffeinated:
+» Reducing repetitive QA work through AI-assisted workflows, from test case generation to defect reporting.
 
-- Manual testing for web and mobile, from test design to regression
-- API testing with Postman, Insomnia and Swagger
-- Data checks with SQL, directly or through an MCP connector
-- Troubleshooting with DevTools, Sentry, Datadog, CloudWatch and network traffic
-- Jira, Zephyr Scale, TestRail, Confluence, GrowthBook
-- Claude agents for test cases, bug reports and requirement reviews
-- Python and Playwright: slowly replacing caffeine with automation
-
-## What's inside
-
-| Section | What you'll see |
-|---|---|
-| From Problem to AI Solution | Two AI features I suggested, how they work and how I tested them |
-| My QA Agents | Claude agents for requirement review, test cases and bug reports |
-| Test Plan | An example test plan |
-| Test Cases | Test cases with steps and expected results |
-| Bug Reports | Bug reports developers can act on right away |
-| Test Automation (in progress) | End-to-end tests with Python and Playwright |
-
-## What I'm looking for
-
-A team where I can bring order to testing, catch the risks real users would hit, and keep growing in automation and AI-assisted QA.
+» Introducing practical automation solutions, even in teams without strong automation expertise.
 
 
+## Ideas That Started as QA Questions
 
+◉ Why do coordinators need to review multiple screens every morning to understand what changed?
+→ Proposed an AI-powered morning digest that summarizes changes, highlights priorities, and surfaces actions that need attention.
 
+◉ What happens to users who can't find a suitable match?
+→ Identified a user drop-off point and proposed a waitlist workflow to keep unmatched users engaged instead of losing them from the process.
 
+◉ Why is finding the right match still largely manual?
+→ Explored an AI-assisted recommendation workflow that helps users make faster, more informed decisions while reducing manual effort.
 
+## From Idea to Execution
 
-
-
-
-
-
-
-
-
-
----
-
-## What makes me different
-
-**I start before the code does.**
-Most QA work begins when a feature is ready. Mine begins when the ticket is written. I built an agent that reviews every new ticket for gaps and drafts acceptance criteria, so developers know exactly what "done" means.
-→ [See the Requirements Agent](QA-Agents.md#agent-1-qa-requirements-agent)
-
-**I bring ideas, not just bug reports.**
-While testing, I noticed where people in the team lost time, and I suggested two AI features to fix it without rebuilding anything: a morning action list and a preceptor recommender.
-→ [See the case studies](AI-case-studies.md)
-
-**I make AI testable.**
-An AI answer is still an output, so I treat it like one. I separate fixed rules from AI ranking, check every claim against the data, and use small "trap" datasets to catch what shouldn't appear.
-→ [See how I tested the recommender](AI-case-studies.md#case-study-2-ai-preceptor-recommender)
-
-**I automate my own routine.**
-Bug reports, test cases with coverage and traceability, requirement reviews: I built Claude agents for all three, connected to Jira and Confluence. I still review every result before it goes anywhere.
-→ [See my QA agents](QA-Agents.md)
-
-**I know regulated domains.**
-Healthcare platforms, clinical research studies, sensitive data, HIPAA and FDA requirements. I know why "it mostly works" isn't good enough there.
-
----
-
-## What's inside
-
-| Section | What you'll see |
+The artifacts below are less about documents and more about how I approach quality. Each one represents a different way I solve problems, reduce risk, or help teams make better decisions.
+| Section | What it demonstrates |
 |---|---|
 | [From Problem to AI Solution](AI-case-studies.md) | Two AI features I suggested, how they work and how I validated them |
-| [My QA Agents](QA-Agents.md) | Three Claude agents for requirement review, test cases and bug reports |
-| [Test Plan](Test_plan_example.md) | An example test plan |
-| [Test Cases](Test_cases_examples.md) | Structured test cases with steps and expected results |
-| [Bug Reports](Bug_reports_example.md) | Bug reports developers can act on right away |
+| [My QA Agents](QA-Agents.md) | AI agents designed to review requirements, generate test cases, and improve bug reporting |
+| [Test Plan](Test_plan_example.md) | Test planning, scope definition, risk assessment, and release readiness |
+| [Test Cases](Test_cases_examples.md) | Turning requirements into testable coverage |
+| [Bug Reports](Bug_reports_example.md) | Defect investigation, business impact analysis, and actionable bug reporting |
 | Test Automation *(in progress)* | End-to-end tests with Python and Playwright |
 
 ---
 
-## Tools I work with
+## QA Toolkit
+*Tested, proven, and occasionally caffeinated*
 
-**Jira** · **Zephyr Scale** · **TestRail** · **Confluence** · **Postman** · **Swagger** · **SQL** · **Sentry** · **Datadog** · **CloudWatch** · **AWS Lambda** · **EventBridge** · **GrowthBook** · **Claude + Atlassian MCP** · **Python & Playwright** *(learning)*
+• Hands-on testing with web and mobile
 
----
+• Healthcare domain experience in a regulated environment
+
+• End-to-end QA ownership across the STLC, from test planning and test case design to release sign-off
+
+• Test design techniques applied to real-world product challenges
+
+• Functional, smoke, sanity, and regression testing
+
+• Risk-based testing and release readiness assessments
+
+• API testing with Postman, Insomnia and Swagger
+
+• Data validation using SQL and MCP-powered data access
+
+• Troubleshooting with DevTools, Sentry, Datadog, logs, and network traffic analysis
+
+• AI-assisted test design, bug reporting, and QA workflow optimisation
+
+• I’m turning Python and Playwright into my QA sidekicks – slowly replacing caffeine with automation.
+
 

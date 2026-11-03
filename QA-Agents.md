@@ -45,7 +45,7 @@ flowchart TD
 ### 1. Problem
 
 - Some tickets were created by the tech team based on their own investigation, so it wasn't always clear what had actually changed.
-- Acceptance criteria were often missing.
+- Acceptance criteria were missing.
 - There was no information for testing: what to check, which roles or flows were affected, or what the expected behaviour was.
 - Testing couldn't start until I tracked down the answers, which slowed down the whole release.
 
@@ -79,8 +79,7 @@ flowchart TD
 
 1. Reads a Jira ticket and generates structured test cases with steps and expected results.
 2. Covers the happy path, data accuracy, boundaries, status changes, role access, export and negative cases.
-3. Labels each case with the test design technique behind it.
-4. Shows coverage metrics: requirement coverage, traceability and the share of functional, negative and edge cases.
+3. Shows coverage metrics: requirement coverage, traceability and the share of functional, negative and edge cases.
 
 ### 3. How I built it
 
@@ -101,18 +100,14 @@ flowchart TD
 
 ### 1. Problem
 
-- Every ticket needs the full structure: title in the team format, preconditions, steps, actual and expected results, and environment.
-- Writing each one by hand was repetitive and took time away from testing.
+Every bug needs the full structure: title format, preconditions, steps, actual and expected results, environment. Writing each one by hand was repetitive and took time away from testing.
 
 ### 2. What it does
 
-1. Takes my short note and writes a full bug report: title, description, preconditions, steps, actual and expected results, environment.
-2. Understands my notes because it knows the project: user roles, interfaces, main flows and rotation statuses.
-3. If my note is missing something important, it asks before writing, for example which role was logged in, which interface I used, what status the rotation was in, or which environment it happened in.
-4. Follows the team's title format: `[Module] Short description of the issue`.
-5. Uses any technical evidence I give it (console errors, API responses) to suggest a likely cause.
-6. Splits a note that describes more than one problem into separate tickets.
-7. After my review, creates the ticket in Jira and shares the link.
+1. Takes my short note and writes a full bug report: title, description, preconditions, steps, actual and expected results, logs, environment.
+2. Asks before writing if something is missing, such as role, interface, rotation status, or environment
+3. Uses context and technical evidence I give it (console errors, API responses) to suggest a likely cause.
+4. Shows a draft first and creates the Jira ticket only after I approve.
 
 ### 3. How I built it
 

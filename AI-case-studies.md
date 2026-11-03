@@ -1,6 +1,6 @@
 ## From Problem to AI Solution
 
-Here are examples of ideas I brought to the team. While testing, I kept seeing where people lost time in the app. I suggested ways to fix that using what was already there, without rebuilding anything. I helped shape the solutions, built the queries behind them and designed how they should work.
+Here are examples of ideas I brought to the team. While testing, I kept seeing where people lost time in the app. I suggested ways to fix that using what was already there, without rebuilding anything. I helped shape the solutions, drafted the queries behind them and designed how they should work.
 
 <table>
   </thead>
@@ -22,11 +22,11 @@ Here are examples of ideas I brought to the team. While testing, I kept seeing w
 
 ## Case Study 1: AI Morning Action Digest
 
-### 1. Context and problem
+### 1. Context and Problem
 Nursing students book clinical rotations with preceptors on a healthcare placement platform. Placement coordinators move each rotation through its stages: request → matching → payment → paperwork → start.
 
 - Every morning, coordinators checked many screens to find what had changed since yesterday and what needed their action.
-- Many items looked actionable but were waiting on someone else, such as a student who still had to approve a replaced preceptor, a preceptor's approval, or school sign-up.
+- Many items looked actionable but were waiting on someone else, such as a student approving a replacement preceptor, a preceptor’s confirmation, or a school sign-off.
 - Changes recorded only in free-text notes were easy to miss since most communication happened outside the app.
 
 ### 2. From Idea to Solution -  AI morning digest
@@ -65,13 +65,12 @@ SELECT r.rotation_id, s.display_name, r.start_date
 FROM rotations r
 JOIN students s ON s.student_id = r.student_id
 WHERE r.state = 'paid'
-  AND r.preceptor_id IS NULL
+  AND r.preceptor_id IS NOT NULL
   AND r.is_deleted = FALSE
   AND EXISTS (
         SELECT 1 FROM preceptor_responses pr
         WHERE pr.rotation_id = r.rotation_id
-          AND pr.response = 'declined')
-  AND r.state <> 'awaiting_student_approval'   
+          AND pr.response = 'declined')  
 ORDER BY r.start_date;
 ```
 
@@ -87,7 +86,7 @@ A healthcare placement platform matches nursing students with preceptors for cli
   
 ### 2. From Idea to Solution
 Paste a rotation ID to get a ranked shortlist of the best preceptors, or add a preceptor ID to see how well it fits. Every result comes with the reason for the match.
-A recommender that works in two layers:
+A recommender works in three steps:
 
 1. **Hard filters (deterministic, never decided by AI):** speciality, license/state, availability window, remaining capacity, and the preceptor being **open for matching**.
 2. **Soft ranking:** distance, past match success, response time and student preferences, combined into a score.
@@ -122,7 +121,7 @@ flowchart LR
 ##  What I learned
 - For AI features, separate what must be true (deterministic rules) from what can be ranked or explained. Test them differently.
 - An explanation is a testable output. Every claim must trace back to a data field.
-- Small synthetic "trap" datasets catch visibility and eligibility bugs faster than large random data.
+
 
 
 
